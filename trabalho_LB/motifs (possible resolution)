@@ -1,0 +1,27 @@
+from Bio import SeqIO
+
+def discover_kmers(fasta_file, kmer_length=6, max_kmers=5):
+    """
+    Discover frequent k-mers of a fixed length from protein sequences in a FASTA file.
+
+    Args:
+        fasta_file (str): Path to the FASTA file with protein sequences.
+        kmer_length (int): Length of k-mers to search for.
+        max_kmers (int): Maximum number of k-mers to return.
+
+    Returns:
+        list: A list of tuples containing k-mers and their counts.
+    """
+    # Parse sequences from the FASTA file
+    sequences = [str(record.seq) for record in SeqIO.parse(fasta_file, "fasta")]
+
+    # Generate and count k-mers
+    kmer_counts = {}
+    for seq in sequences:
+        for i in range(len(seq) - kmer_length + 1):
+            kmer = seq[i:i + kmer_length]
+            kmer_counts[kmer] = kmer_counts.get(kmer, 0) + 1
+
+    # Sort k-mers by frequency and return the top results
+    sorted_kmers = sorted(kmer_counts.items(), key=lambda x: x[1], reverse=True)
+    return sorted_kmers[:max_kmers]
