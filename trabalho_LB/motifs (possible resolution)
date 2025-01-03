@@ -25,3 +25,16 @@ def discover_kmers(fasta_file, kmer_length=6, max_kmers=5):
     # Sort k-mers by frequency and return the top results
     sorted_kmers = sorted(kmer_counts.items(), key=lambda x: x[1], reverse=True)
     return sorted_kmers[:max_kmers]
+
+# Main script
+fasta_file = "MSA_GH42.fasta"  # Path to your FASTA file
+motif_length = 50  # Length of motifs to discover
+max_motifs = 10  # Maximum number of motifs to display
+
+# Discover motifs
+motifs = discover_motifs(fasta_file, motif_length, max_motifs)
+
+# Display the discovered motifs
+print("Discovered Motifs:")
+for i, (kmer, count, motif) in enumerate(motifs, 1):
+    print(f"{i}. Motif: {kmer} | Count: {count}")
