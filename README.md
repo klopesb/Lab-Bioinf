@@ -1,4 +1,4 @@
-## Laboratório de Bioinformática - Análise de proteínas 
+## Laboratório de Bioinformática - Análise de genes Bifidobacterium bifidum
 
 Nesse repositório há uma coleção de códigos que auxiliam na análise de genes presentes em Bifidobacterium bifidum que são: bbhI, afcA, siabb2, bbgII. 
 
