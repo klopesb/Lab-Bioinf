@@ -36,6 +36,7 @@ Este projeto foi desenvolvido como parte das atividades da disciplina Laboratór
 - Python 3.x 
 - Biopython
 - matplotlib
+- Jupyter Notebook
 
 ---
 
